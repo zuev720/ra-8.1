@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta+Mahee&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Mukta Mahee', sans-serif;
+  color: #262f38;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
