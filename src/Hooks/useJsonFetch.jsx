@@ -17,6 +17,7 @@ export function useJsonFetch(url, opt) {
             .catch((error) => {
                 setStatus({ loading: false, error })
             })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return [status.loading, status.data, status.error];
