@@ -8,7 +8,7 @@ export function UsersList(props) {
     const userItems = (!data)
         ? null
         : data.map((user) => {
-        return <UserItem key={user.id} handleUserClick={props.handleUserClick}{...user}/>
+        return <UserItem key={user.id} activeUser={props.activeUser} handleUserClick={props.handleUserClick}{...user}/>
     });
 
     return (
