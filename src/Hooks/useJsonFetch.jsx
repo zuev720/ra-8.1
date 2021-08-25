@@ -1,24 +1,23 @@
 import {useEffect, useState} from 'react';
 
 export function useJsonFetch(url, opt) {
-    const [status, setStatus] = useState({
-        loading: false,
-        data: undefined,
-        error: undefined
-    })
+    const [loading, setLoading] = useState(false);
+    const [data, setData] = useState(undefined);
+    const [error, setError] = useState(undefined);
 
     useEffect(() => {
-        setStatus({ loading: true })
-        fetch(url, opt)
-            .then((result) => result.json())
-            .then((result) => {
-                setStatus({ loading: false, data: result })
-            })
-            .catch((error) => {
-                setStatus({ loading: false, error })
-            })
+        setLoading({loading: true});
+        try {
+            fetch(url, opt)
+                .then((result) => result.json())
+                .then((result) => setData(result))
+        } catch (error) {
+            setError(error);
+        } finally {
+            setLoading(false);
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    return [status.loading, status.data, status.error];
+    return [loading, data, error];
 }
